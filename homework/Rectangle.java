@@ -40,15 +40,13 @@ public class Rectangle extends Shape {
 
 	@Override
 	public double getArea() {
-		double result = length * width;
-		return result;
+		return length * width;
 
 	}
 
 	@Override
 	public double getPerimeter() {
-		double result = 2 * (length + width);
-		return result;
+		return  2 * (length + width);
 	}
 
 	public void showRectangle(char sign) {

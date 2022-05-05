@@ -37,14 +37,12 @@ public class Circle extends Shape {
 
 	@Override
 	public double getArea() {
-		double result = this.radius * this.radius * Shape.PI;
-		return result;
+		return  radius * radius * Shape.PI;
 	}
 
 	@Override
 	public double getPerimeter() {
-		double result = 2 * radius * Shape.PI;
-		return result;
+		return   2 * radius * Shape.PI;
 	}
 
 	public int getRadius() {
