@@ -33,41 +33,17 @@ public class ShapeCalculatorV2 {
 	int radius;
 	int length;
 	int width;
+	Shape shape;
 
 	public ShapeCalculatorV2(Shape shape) {
-		/*
-		 * 這邊會同時印出來 System.out.println("面積: " + shape.getArea());
-		 * System.out.println("周長: " + shape.getPerimeter());
-		 */
-		if (shape instanceof Circle) {
-			this.radius = ((Circle) shape).radius;
-		} else if (shape instanceof Rectangle) {
-			this.width = ((Rectangle) shape).width;
-			this.length = ((Rectangle) shape).length;
-		}
+		this.shape = shape;
 	}
 
-	public double getPerimeter() {
-		double perimeter = 0;
-		if (radius != 0) {
-			perimeter = 2 * radius * Math.PI;
-		} else if (length != 0 && width != 0) {
-			perimeter = 2 * (length + width);
-		} else {
-			perimeter = -1;
-		}
-		return perimeter;
+	public double getPerimeter() {	
+		return this.shape.getPerimeter();
 	}
 
 	public double getArea() {
-		double area = 0;
-		if (radius != 0) {
-			area = radius * radius * Math.PI;
-		} else if (length != 0 && width != 0) {
-			area = length * width;
-		} else {
-			area = -1;
-		}
-		return area;
+		return this.shape.getArea();
 	}
 }
