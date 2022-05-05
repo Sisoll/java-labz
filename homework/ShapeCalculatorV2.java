@@ -20,50 +20,54 @@ public class ShapeCalculatorV2 {
 		circle.radius = 10;
 
 		ShapeCalculatorV2 r = new ShapeCalculatorV2(rectangle);
-		ShapeCalculatorV2 t = new ShapeCalculatorV2(circle);
+		ShapeCalculatorV2 c = new ShapeCalculatorV2(circle);
 
-		r.getArea();
-		t.getPerimeter();
+		System.out.println(r.getArea());
+		System.out.println(r.getPerimeter());
+
+		System.out.println(c.getArea());
+		System.out.println(c.getPerimeter());
 
 	}
 
 	int radius;
 	int length;
 	int width;
-	String shape;
 
-	public ShapeCalculatorV2() {
-	}
-
-	public ShapeCalculatorV2(Circle circle) {
-		this.radius = circle.radius;
-		this.shape = "circle";
-	}
-
-	public ShapeCalculatorV2(Rectangle rectangle) {
-		this.length = rectangle.length;
-		this.width = rectangle.width;
-		this.shape = "rectangle";
-	}
-
-	public void getPerimeter() {
-
-		if (this.shape.equals("circle")) {
-			double perimeter = 2 * radius * Math.PI;
-			System.out.println("圓的周長是 " + perimeter);
-		} else {
-			double perimeter = 2 * (length + width);
-			System.out.println("方形的周長是 " + perimeter);
+	public ShapeCalculatorV2(Shape shape) {
+		/*
+		 * 這邊會同時印出來 System.out.println("面積: " + shape.getArea());
+		 * System.out.println("周長: " + shape.getPerimeter());
+		 */
+		if (shape instanceof Circle) {
+			this.radius = ((Circle) shape).radius;
+		} else if (shape instanceof Rectangle) {
+			this.width = ((Rectangle) shape).width;
+			this.length = ((Rectangle) shape).length;
 		}
 	}
 
-	public void getArea() {
-		if (this.shape.equals("circle")) {
-			double cAare = radius * radius * Math.PI;
-			System.out.println("圓的面積是 " + cAare);
+	public double getPerimeter() {
+		double perimeter = 0;
+		if (radius != 0) {
+			perimeter = 2 * radius * Math.PI;
+		} else if (length != 0 && width != 0) {
+			perimeter = 2 * (length + width);
 		} else {
-			double tArea = length * width;
-			System.out.println("方形的面積是 " + tArea);
+			perimeter = -1;
 		}
+		return perimeter;
+	}
+
+	public double getArea() {
+		double area = 0;
+		if (radius != 0) {
+			area = radius * radius * Math.PI;
+		} else if (length != 0 && width != 0) {
+			area = length * width;
+		} else {
+			area = -1;
+		}
+		return area;
 	}
 }
