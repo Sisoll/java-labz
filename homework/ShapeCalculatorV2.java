@@ -40,10 +40,10 @@ public class ShapeCalculatorV2 {
 	}
 
 	public double getPerimeter() {	
-		return this.shape.getPerimeter();
+		return shape.getPerimeter();
 	}
 
 	public double getArea() {
-		return this.shape.getArea();
+		return shape.getArea();
 	}
 }

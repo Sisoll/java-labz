@@ -20,9 +20,8 @@ package JavaLabs_exercise;
  * 		} 
  * }
  * 
- *
+ * </pre>
  * @author SisolShie
- *</pre>
  */
 abstract class Human {
 	int weight = 50;

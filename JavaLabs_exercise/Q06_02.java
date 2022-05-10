@@ -9,12 +9,6 @@ package JavaLabs_exercise;
  */
 public class Q06_02 {
 
-	public static void main(String[] args) {
-
-		Q06_02 step = new Q06_02();
-		System.out.println(step.factorial(5));
-	}
-
 	long factorial(int n) {
 
 		long ans = 1;
