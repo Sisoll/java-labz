@@ -17,7 +17,7 @@ public class OptionalSample {
             // 去掉字串頭尾空白
             .map(String::trim)
             // 把字串轉成 int
-            .map(s -> parseInt(s))
+            .map(OptionalSample::parseInt)
             // 過濾小於零數字
             .filter(i -> i > 0)
             .map(i -> {
