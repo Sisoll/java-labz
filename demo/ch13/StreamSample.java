@@ -1,13 +1,11 @@
 package demo.ch13;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamSample {
     public static void main(String[] args) {
         // Step 1: 建立一個 List，內容為 1 ~ 10 的 int
-        List<Integer> list = IntStream.rangeClosed(1, 10)
+        Integer sum = IntStream.rangeClosed(1, 10)
             .boxed()
             // Step 2: 將每個值 x 2 + 1
             .map(i -> i * 2 + 1)
@@ -15,10 +13,10 @@ public class StreamSample {
             .filter(i -> i % 3 == 0)
             // Step 4: 將每個值變平方
             .map(i -> i * i)
-            .collect(Collectors.toList());
+            // Step 5: 計算總合
+            .reduce(0, (i1, i2) -> i1 + i2);
 
         // Note: add `-ea` to VM arguments
-        assert list.size() == 4;
-        assert list.equals(List.of(9, 81, 225, 441));
+        assert sum == 756;
     }
 }
