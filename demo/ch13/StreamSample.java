@@ -13,10 +13,12 @@ public class StreamSample {
             .map(i -> i * 2 + 1)
             // Step 3: 保留是 3 的倍數
             .filter(i -> i % 3 == 0)
+            // Step 4: 將每個值變平方
+            .map(i -> i * i)
             .collect(Collectors.toList());
 
         // Note: add `-ea` to VM arguments
         assert list.size() == 4;
-        assert list.equals(List.of(3, 9, 15, 21));
+        assert list.equals(List.of(9, 81, 225, 441));
     }
 }
