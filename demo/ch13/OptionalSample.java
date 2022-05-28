@@ -15,7 +15,7 @@ public class OptionalSample {
     static NumberType getType(String str) {
         return Optional.ofNullable(str)
             // 去掉字串頭尾空白
-            .map(s -> s.trim())
+            .map(String::trim)
             // 把字串轉成 int
             .map(s -> {
                 try {
