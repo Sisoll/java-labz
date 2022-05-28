@@ -13,7 +13,14 @@ public class OptionalSample {
     static NumberType getType(String str) {
         return Optional.ofNullable(str)
             // 把字串轉成 int
-            .map(s -> Integer.parseInt(s))
+            .map(s -> {
+                try {
+                    return Integer.parseInt(s);
+                } catch (NumberFormatException e) {
+                    // 無法將字串轉為數字時，回傳 -1
+                    return -1;
+                }
+            })
             .map(i -> {
                 // 檢查是奇數 / 偶數
                 if (i % 2 == 0) {
