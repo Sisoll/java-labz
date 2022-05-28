@@ -11,10 +11,12 @@ public class StreamSample {
             .boxed()
             // Step 2: 將每個值 x 2 + 1
             .map(i -> i * 2 + 1)
+            // Step 3: 保留是 3 的倍數
+            .filter(i -> i % 3 == 0)
             .collect(Collectors.toList());
 
         // Note: add `-ea` to VM arguments
-        assert list.size() == 10;
-        assert list.equals(List.of(3, 5, 7, 9, 11, 13, 15, 17, 19, 21));
+        assert list.size() == 4;
+        assert list.equals(List.of(3, 9, 15, 21));
     }
 }
