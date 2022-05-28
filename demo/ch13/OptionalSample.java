@@ -18,12 +18,7 @@ public class OptionalSample {
             .map(String::trim)
             // 把字串轉成 int
             .map(s -> {
-                try {
-                    return Integer.parseInt(s);
-                } catch (NumberFormatException e) {
-                    // 無法將字串轉為數字時，回傳 -1
-                    return -1;
-                }
+                return parseInt(s);
             })
             // 過濾小於零數字
             .filter(i -> i > 0)
@@ -35,6 +30,15 @@ public class OptionalSample {
                 return NumberType.ODD;
             })
             .orElse(NumberType.UNKNOWN);
+    }
+
+    private static int parseInt(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            // 無法將字串轉為數字時，回傳 -1
+            return -1;
+        }
     }
 
     enum NumberType {
