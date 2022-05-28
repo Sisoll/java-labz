@@ -1,5 +1,6 @@
 package demo.ch13;
 
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamSample {
@@ -14,7 +15,7 @@ public class StreamSample {
             // Step 4: 將每個值變平方
             .map(i -> i * i)
             // Step 5: 計算總合
-            .reduce(0, Integer::sum);
+            .collect(Collectors.summingInt(e -> e));
 
         // Note: add `-ea` to VM arguments
         assert sum == 756;
