@@ -9,10 +9,13 @@ public class OptionalSample {
         assert getType("1") == NumberType.ODD;
         assert getType("2") == NumberType.EVEN;
         assert getType("a") == NumberType.UNKNOWN;
+        assert getType(" 5 ") == NumberType.ODD;
     }
 
     static NumberType getType(String str) {
         return Optional.ofNullable(str)
+            // 去掉字串頭尾空白
+            .map(s -> s.trim())
             // 把字串轉成 int
             .map(s -> {
                 try {
