@@ -8,6 +8,7 @@ public class OptionalSample {
         assert getType(null) == NumberType.UNKNOWN;
         assert getType("1") == NumberType.ODD;
         assert getType("2") == NumberType.EVEN;
+        assert getType("a") == NumberType.UNKNOWN;
     }
 
     static NumberType getType(String str) {
@@ -21,6 +22,8 @@ public class OptionalSample {
                     return -1;
                 }
             })
+            // 過濾小於零數字
+            .filter(i -> i > 0)
             .map(i -> {
                 // 檢查是奇數 / 偶數
                 if (i % 2 == 0) {
