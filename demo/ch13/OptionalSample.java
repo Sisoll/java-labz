@@ -20,13 +20,7 @@ public class OptionalSample {
             .map(OptionalSample::parseInt)
             // 過濾小於零數字
             .filter(i -> i > 0)
-            .map(i -> {
-                // 檢查是奇數 / 偶數
-                if (i % 2 == 0) {
-                    return NumberType.EVEN;
-                }
-                return NumberType.ODD;
-            })
+            .map(OptionalSample::getNumberType)
             .orElse(NumberType.UNKNOWN);
     }
 
@@ -37,6 +31,14 @@ public class OptionalSample {
             // 無法將字串轉為數字時，回傳 -1
             return -1;
         }
+    }
+
+    private static NumberType getNumberType(Integer i) {
+        // 檢查是奇數 / 偶數
+        if (i % 2 == 0) {
+            return NumberType.EVEN;
+        }
+        return NumberType.ODD;
     }
 
     enum NumberType {
