@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * 
@@ -35,8 +36,9 @@ sample.txt 含有 xxx 個位元組， yyy 個字元， mmm 列資料。
 public class Q10_02 {
 
 	public static void main(String[] args) {
+		Q10_02("file/Sample.txt");
 
-		Q10_02("file//Sample.txt");
+		Q10_02_2("file/Sample.txt");
 		// Q10_02("D://MyDaya.txt");
 	}
 
@@ -55,11 +57,31 @@ public class Q10_02 {
 				lineNum++;
 			}
 
-			System.out.print("sample.txt 含有 " + fis.available() + " 個位元組，" + charNum + "個字元，" + lineNum + " 列資料。");
+			System.out.println("sample.txt 含有 " + fis.available() + " 個位元組，" + charNum + "個字元，" + lineNum + " 列資料。");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+
+	static void Q10_02_2(String src) {
+		try (FileInputStream fis = new FileInputStream(src);
+				BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
+			String s;
+			int rowCount = 0;
+			int charCount = 0;
+			int bytes = fis.available();
+
+			while ((s = br.readLine()) != null) {
+				charCount += s.length();
+				rowCount++;
+			}
+
+			System.out.print("sample.txt 含有 " + bytes + " 個位元組，" + charCount + "個字元，" + rowCount + " 列資料。");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

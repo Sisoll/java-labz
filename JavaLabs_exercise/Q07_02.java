@@ -2,6 +2,8 @@ package JavaLabs_exercise;
 
 import java.util.Calendar;
 
+import Test.MyLogger;
+
 /**
  * <pre>
  * 請利用靜態區塊來設定StaticCodeBlock類別的靜態變數season的初值。 請參考下列條件來設定靜態變數season的初值：
@@ -27,6 +29,8 @@ class StaticCodeBlock {
 		//int month  = Calendar.MONTH ;
 		//System.out.println(Calendar.MARCH);
 		
+		
+		MyLogger.debug(month);
 		System.out.println(month);
 		
 		switch (month) {
