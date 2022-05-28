@@ -14,7 +14,7 @@ public class StreamSample {
             // Step 4: 將每個值變平方
             .map(i -> i * i)
             // Step 5: 計算總合
-            .reduce(0, (i1, i2) -> i1 + i2);
+            .reduce(0, Integer::sum);
 
         // Note: add `-ea` to VM arguments
         assert sum == 756;
