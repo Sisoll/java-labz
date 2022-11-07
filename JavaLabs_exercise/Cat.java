@@ -1,5 +1,6 @@
 package JavaLabs_exercise;
 
+
 public class Cat extends Mammal {
 
 	String name;
@@ -17,4 +18,6 @@ public class Cat extends Mammal {
 	public void meao() {
 		System.out.println("Cat=> " + name + " meaomeao");
 	}
+
+	// qqqqq
 }
